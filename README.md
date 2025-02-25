@@ -5,6 +5,9 @@
 ## Description du projet
 Ce site WordPress est conçu pour promouvoir la ville de **Carcassonne**, son patrimoine exceptionnel, son dynamisme économique et son attractivité. Il vise à informer les résidents actuels, attirer de nouveaux arrivants, et soutenir les initiatives locales.
 
+Notre compte rendu : 
+[CompteRenduSAE105.pdf](https://github.com/user-attachments/files/18965226/CompteRenduSAE105.pdf)
+
 ---
 
 ## Fonctionnalités principales
@@ -46,6 +49,18 @@ Ce site WordPress est conçu pour promouvoir la ville de **Carcassonne**, son pa
 - **Extensions principales** :  
   - **WPForms** : Gestion des formulaires de contact.  
   - **Kubio** : Création de pages sur mesure.  
+
+---
+
+## Quelques images 
+
+![Capture d'écran 2025-02-25 133325](https://github.com/user-attachments/assets/4930eb71-1fc7-47aa-959c-06775c6176fe)
+
+![Capture d'écran 2025-02-25 133254](https://github.com/user-attachments/assets/d1d22077-b1e2-408f-a65d-aee48f913a51)
+
+![Capture d'écran 2025-02-25 141657](https://github.com/user-attachments/assets/24e1b2e4-3906-4ee7-82af-ee323142f19e)
+
+![Capture d'écran 2025-02-25 141854](https://github.com/user-attachments/assets/4651cba4-ffec-4db1-82bb-c01afee0bcf0)
 
 ---
 

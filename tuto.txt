@@ -1,0 +1,90 @@
+Great! Since you now have the `wordpress.sql` file, you can use it to set up or restore your WordPress database on another system or the same system after reconfiguring. Here’s what you can do:
+
+---
+
+### **1. Import the Database on a New System**
+To use `wordpress.sql`, you need a working MariaDB or MySQL server.
+
+#### **Step-by-Step Guide:**
+1. **Transfer the SQL File to the Target System**
+   If the new system is remote, transfer the `wordpress.sql` file:
+   ```bash
+   scp wordpress.sql user@remote-server:/path/to/destination
+   ```
+   Or use a USB drive, shared folder, etc.
+
+2. **Create the Database**
+   On the target system, log in to MariaDB:
+   ```bash
+   sudo mariadb -u root -p
+   ```
+   Create a new database for WordPress:
+   ```sql
+   CREATE DATABASE wordpress;
+   ```
+   Exit the MariaDB shell:
+   ```sql
+   EXIT;
+   ```
+
+3. **Import the SQL File**
+   Run the following command to import:
+   ```bash
+   mysql -u root -p wordpress < /path/to/wordpress.sql
+   ```
+   Replace `/path/to/wordpress.sql` with the location of your SQL file.
+
+4. **Verify the Import**
+   Log in to MariaDB and check:
+   ```bash
+   mysql -u root -p
+   USE wordpress;
+   SHOW TABLES;
+   ```
+   You should see the WordPress tables (e.g., `wp_posts`, `wp_options`).
+
+---
+
+### **2. Update `wp-config.php` for New Database Connection**
+If you're moving the WordPress site, you'll also need to update the database connection details in the WordPress configuration file (`wp-config.php`):
+
+1. Locate the `wp-config.php` file in your WordPress folder.
+2. Edit the database credentials to match the new setup:
+   ```php
+   define('DB_NAME', 'wordpress'); // Database name
+   define('DB_USER', 'root'); // Database user
+   define('DB_PASSWORD', 'your_password'); // Database password
+   define('DB_HOST', 'localhost'); // Database host
+   ```
+3. Save the changes.
+
+---
+
+### **3. Configure WordPress URLs (If Moving to a New Domain)**
+If you're migrating to a new domain, update the WordPress URLs:
+
+1. Log in to MariaDB:
+   ```bash
+   mysql -u root -p
+   ```
+2. Update the `siteurl` and `home` options in the `wp_options` table:
+   ```sql
+   USE wordpress;
+   UPDATE wp_options SET option_value = 'http://newdomain.com' WHERE option_name = 'siteurl';
+   UPDATE wp_options SET option_value = 'http://newdomain.com' WHERE option_name = 'home';
+   ```
+
+---
+
+### **4. Restart the WordPress Site**
+- Place the WordPress folder on your web server (e.g., Apache or Nginx).
+- Ensure PHP and the MariaDB connection are properly configured.
+- Open the site in a browser and verify everything is working.
+
+---
+
+### **Optional: Troubleshooting**
+- If the site is broken or displays errors, ensure the database connection details in `wp-config.php` are correct.
+- Check your server logs (`/var/log/apache2/error.log` or `/var/log/nginx/error.log`).
+
+Let me know if you encounter issues or need more help!

@@ -1,5 +1,5 @@
 Great! Since you now have the `wordpress.sql` file, you can use it to set up or restore your WordPress database on another system or the same system after reconfiguring. Here’s what you can do:
-
+Faustin collaborateur
 ---
 
 ### **1. Import the Database on a New System**
